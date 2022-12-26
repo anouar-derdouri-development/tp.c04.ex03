@@ -43,8 +43,12 @@ public class GameActivity extends AppCompatActivity {
                     if (nombreDonne == nombreAleatoire) {
                         Toast.makeText(GameActivity.this, "BRAVO", Toast.LENGTH_LONG).show();
                         nombreAleatoire = new Random().nextInt((max - min) + 1) + min;
-                    } else
-                        Toast.makeText(GameActivity.this, "NON", Toast.LENGTH_LONG).show();
+                    } else {
+                        if (nombreDonne < nombreAleatoire)
+                            Toast.makeText(GameActivity.this, "PLUS GRAND", Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(GameActivity.this, "PLUS PETIT", Toast.LENGTH_LONG).show();
+                    }
                 } catch (NumberFormatException e) {
                     Toast.makeText(GameActivity.this, "Vous devez saisir un entier !!!", Toast.LENGTH_LONG).show();
                 }
